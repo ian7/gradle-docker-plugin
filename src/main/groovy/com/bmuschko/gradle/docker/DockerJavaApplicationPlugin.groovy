@@ -75,7 +75,7 @@ class DockerJavaApplicationPlugin implements Plugin<Project> {
             from { dockerJavaApplication.baseImage }
             maintainer { dockerJavaApplication.maintainer }
             addFile({ installTask.destinationDir.name }, { "/${installTask.destinationDir.name}" })
-            addFile({ "app-lib/${jarTask.archiveName}" }, { "/${installTask.destinationDir.name}/lib/${jarTask.archiveName}" })
+            addFile({ "lib/${jarTask.archiveName}" }, { "/${installTask.destinationDir.name}/lib/${jarTask.archiveName}" })
             instructions << dockerJavaApplication.exec
             doFirst {
                 if (dockerJavaApplication.getPorts().length > 0) {
@@ -96,7 +96,7 @@ class DockerJavaApplicationPlugin implements Plugin<Project> {
             from { installTask.destinationDir.parentFile }
             into { createDockerfileTask.destFile.parentFile }
             exclude "**/lib/${jarTask.archiveName}"
-            into("app-lib") {
+            into("lib") {
                 from jarTask
             }
         } as Sync

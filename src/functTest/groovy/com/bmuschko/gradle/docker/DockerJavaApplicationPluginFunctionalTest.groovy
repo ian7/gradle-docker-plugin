@@ -22,7 +22,7 @@ class DockerJavaApplicationPluginFunctionalTest extends AbstractFunctionalTest {
 """FROM openjdk
 MAINTAINER ${System.getProperty('user.name')}
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 EXPOSE 8080
 """
@@ -56,7 +56,7 @@ EXPOSE 8080
 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 EXPOSE 9090
 """
@@ -90,7 +90,7 @@ EXPOSE 9090
                 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 EXPOSE 9090 8080
 """
@@ -124,7 +124,7 @@ EXPOSE 9090 8080
             """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 """
         result.output.contains('Author           : Benjamin Muschko "benjamin.muschko@gmail.com"')
@@ -161,7 +161,7 @@ ENTRYPOINT ["/${projectName}/bin/${projectName}"]
                 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 CMD ["arg1"]
 ENTRYPOINT ["bin/run.sh"]
 EXPOSE 9090
@@ -196,7 +196,7 @@ EXPOSE 9090
                 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 
 EXPOSE 9090
 """
@@ -245,7 +245,7 @@ EXPOSE 9090
 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER Benjamin Muschko "benjamin.muschko@gmail.com"
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 ADD file1.txt /some/dir/file1.txt
 ADD file2.txt /other/dir/file2.txt
@@ -294,7 +294,7 @@ EXPOSE 9090
                 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER ${System.getProperty('user.name')}
 ADD javaapp /javaapp
-ADD app-lib/${projectName}-1.0.jar /javaapp/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /javaapp/lib/$projectName-1.0.jar
 ENTRYPOINT ["/javaapp/bin/javaapp"]
 EXPOSE 8080
 """
@@ -325,7 +325,7 @@ EXPOSE 8080
                 """FROM $CUSTOM_BASE_IMAGE
 MAINTAINER ${System.getProperty('user.name')}
 ADD javaapp /javaapp
-ADD app-lib/${projectName}-1.0.jar /javaapp/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /javaapp/lib/$projectName-1.0.jar
 ENTRYPOINT ["/javaapp/bin/javaapp"]
 EXPOSE 8080
 """
@@ -354,7 +354,7 @@ EXPOSE 8080
         dockerfile.text ==
             """FROM openjdk
 ADD ${projectName} /${projectName}
-ADD app-lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
+ADD lib/${projectName}-1.0.jar /$projectName/lib/$projectName-1.0.jar
 ENTRYPOINT ["/${projectName}/bin/${projectName}"]
 EXPOSE 8080
 """
